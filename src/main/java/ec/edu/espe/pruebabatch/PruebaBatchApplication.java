@@ -1,5 +1,6 @@
 package ec.edu.espe.pruebabatch;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameters;
@@ -19,9 +20,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 @SpringBootApplication
 @Slf4j
 @EnableScheduling
+@RequiredArgsConstructor
 public class PruebaBatchApplication {
-    @Autowired
-    JobLauncher launcher;
+    private final JobLauncher launcher;
     @Autowired
     @Qualifier("processTextFileJob")
     Job processTextFileJob;
